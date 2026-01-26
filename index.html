@@ -148,14 +148,14 @@
         
         <!-- CURRENT RESULT (Daily 1 PM) -->
         <div class="current-section">
-            <div class="RESULT" id="currentNum">42</div>
-            <p class="astrology-text">✨ TODAY'S RESULT (25 Jan) ✨</p>
+            <div class="RESULT" id="currentNum">50</div>
+            <p class="astrology-text">✨ TODAY'S RESULT (26 Jan) ✨</p>
             <p class="astrology-text">RESULT TIME 1:00 PM</p>
         </div>
 
-        <!-- JANUARY 2026 RESULTS (Till Today - 25 Jan) -->
+        <!-- JANUARY 2026 RESULTS (Till Today - 26 Jan) -->
         <div class="month-section">
-            <h2 class="month-title">📊 JANUARY 2026 RESULTS (Till 25 Jan)</h2>
+            <h2 class="month-title">📊 JANUARY 2026 RESULTS (Till 26 Jan)</h2>
             <div class="chart-grid" id="januaryChart">
                 <!-- January chart populated by JavaScript -->
             </div>
@@ -178,7 +178,7 @@
         </div>
 
         <div class="update-info">
-            Last Updated: Jan 25, 2026 1:00 PM IST<br>
+            Last Updated: Jan 26, 2026 1:00 PM IST<br>
             👑 DOON NIGHT | Daily 1 PM Results | Delhi, India
         </div>
     </div>
@@ -187,11 +187,11 @@
         // ========================================
         // FULL RANDOM RESULTS 1-100 FOR ALL DATES
         // ========================================
-        const TODAY_RESULT = 42;  // 25 Jan 2026 - UPDATED AS REQUESTED
+        const TODAY_RESULT = 50;  // 26 Jan 2026 - UPDATED AS REQUESTED
 
         // JANUARY 2026 - RANDOM 1-31 (TILL TODAY 22 Jan)
         const januaryResults = [
-            24, 13, 42, 22, 23, 04, 56, 10, 65, 11, 89, 33, 41, 28, 28, 73, 10, 18, 19, 33, 51, 28, 15, 01, 42// 25 Jan (TODAY - HIGHLIGHTED)
+            24, 13, 42, 22, 23, 04, 56, 10, 65, 11, 89, 33, 41, 28, 28, 73, 10, 18, 19, 33, 51, 28, 15, 01, 42, 50// 26 Jan (TODAY - HIGHLIGHTED)
             // ADD MORE: , 67, 12, 89, ... up to 31 Jan when dates pass
         ];
         
@@ -210,11 +210,11 @@
         // Display current result
         document.getElementById('currentNum').textContent = TODAY_RESULT;
 
-        // January 2026 chart (25 Jan only - NEW SECTION)
+        // January 2026 chart (26 Jan only - NEW SECTION)
         const janChart = document.getElementById('januaryChart');
-        for(let day = 1; day <= 25; day++) {  // Till today (25 Jan)
+        for(let day = 1; day <= 26; day++) {  // Till today (26 Jan)
             const div = document.createElement('div');
-            div.className = `chart-day ${day === 25 ? 'today-highlight' : ''}`;
+            div.className = `chart-day ${day === 26 ? 'today-highlight' : ''}`;
             div.innerHTML = `
                 <div class="day-date">${day} Jan</div>
                 <div class="day-result">${januaryResults[day-1]}</div>
