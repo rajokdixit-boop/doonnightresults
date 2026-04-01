@@ -148,104 +148,92 @@
         
         <!-- CURRENT RESULT (Daily 1 PM) -->
         <div class="current-section">
-            <div class="RESULT" id="currentNum">12</div>
-            <p class="astrology-text">✨ TODAY'S RESULT (30 Mar) ✨</p>
+            <div class="RESULT" id="currentNum">--</div>
+            <p class="astrology-text">✨ TODAY'S RESULT (01 Apr) ✨</p>
             <p class="astrology-text">RESULT TIME 1:00 PM</p>
         </div>
 
-        <!-- MARCH 2026 RESULTS (Top - Fresh Current, Daily Updates) -->
+        <!-- APRIL 2026 RESULTS -->
         <div class="month-section">
-            <h2 class="month-title">📊 MARCH 2026 RESULTS (Fresh - Till Today)</h2>
+            <h2 class="month-title">📊 APRIL 2026 RESULTS (Fresh - Till Today)</h2>
+            <div class="chart-grid" id="aprilChart">
+                <!-- April chart populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- MARCH 2026 RESULTS -->
+        <div class="month-section">
+            <h2 class="month-title">📊 MARCH 2026 RESULTS (Complete)</h2>
             <div class="chart-grid" id="marchChart">
                 <!-- March chart populated by JavaScript -->
             </div>
         </div>
 
-        <!-- FEBRUARY 2026 RESULTS (Middle - Complete) -->
+        <!-- FEBRUARY 2026 RESULTS -->
         <div class="month-section">
-            <h2 class="month-title">📊 FEBRUARY 2026 RESULTS (Complete)</h2>
+            <h2 class="month-title">📊 FEBRUARY 2026 RESULTS (Previous - Complete)</h2>
             <div class="chart-grid" id="februaryChart">
                 <!-- February chart populated by JavaScript -->
             </div>
         </div>
 
-        <!-- JANUARY 2026 RESULTS (Bottom - Oldest Previous) -->
-        <div class="month-section">
-            <h2 class="month-title">📊 JANUARY 2026 RESULTS (Previous - Complete)</h2>
-            <div class="chart-grid" id="januaryChart">
-                <!-- January chart populated by JavaScript -->
-            </div>
-        </div>
-
         <div class="update-info">
-            Last Updated: Mar 30, 2026 1:00 PM IST<br>
+            Last Updated: Apr 01, 2026 1:00 PM IST<br>
             👑 DOON NIGHT | Daily 1 PM Results | Delhi, India
         </div>
     </div>
 
     <script>
         // ========================================
-        // DAILY UPDATE: MARCH ONLY (3 EASY SPOTS)
-        // Feb/Jan now fixed complete below
+        // DAILY UPDATE: APRIL ONLY
         // ========================================
-        const TODAY_RESULT = 12;  // 30 Mar - EDIT THIS DAILY (after 1 PM real result)
+        const TODAY_RESULT = "--"; // 01 Apr - EDIT THIS DAILY
 
-        // MARCH 2026 (TOP: Fresh growing daily - highlight last/today)
-        const marchResults = [
-            12, 23, 21, 15, 17, 20, 38, 45, 90, 45, 22, 91, 03, 97, 30, 30, 33, 32, 52, 89, 90, 10, 07, 86, 88, 82, 66, 40, 60, 12  // 1 Mar (TODAY - demo till 1 PM draw)
-            // Tomorrow: , 72 → [58, 72]
+        // APRIL 2026
+        const aprilResults = [
+            // Add April results here as they come out
         ];
 
-        // FEBRUARY 2026 (MIDDLE: Complete fixed - 27 days)
+        // MARCH 2026 (Now Complete)
+        const marchResults = [
+            12, 23, 21, 15, 17, 20, 38, 45, 90, 45, 22, 91, 03, 97, 30, 30, 33, 32, 52, 89, 90, 10, 07, 86, 88, 82, 66, 40, 60, 12
+        ];
+
+        // FEBRUARY 2026 (Complete)
         const februaryResults = [
              14, 55, 59, 55, 41, 50, 99, 42, 58, 02, 100, 90, 80, 14, 19, 06, 09, 41, 35, 67, 76, 26, 10, 90, 24, 76, 26
-        ];
-
-        // JANUARY 2026 (BOTTOM: Oldest fixed - 30 days)
-        const januaryResults = [
-            24, 13, 42, 22, 23, 04, 56, 10, 65, 11, 89, 33, 41, 28, 28,
-            73, 10, 18, 19, 33, 51, 28, 15, 01, 42, 50, 59, 26, 100, 23,
         ];
 
         // Display current result
         document.getElementById('currentNum').textContent = TODAY_RESULT;
 
-        // March top chart (growing - today highlighted)
+        // Populate April
+        const aprilChart = document.getElementById('aprilChart');
+        for(let day = 1; day <= Math.max(aprilResults.length, 1); day++) {
+            const div = document.createElement('div');
+            const result = aprilResults[day-1] !== undefined ? aprilResults[day-1] : "--";
+            div.className = `chart-day ${day === aprilResults.length ? 'today-highlight' : ''}`;
+            div.innerHTML = `<div class="day-date">${day} Apr</div><div class="day-result">${result}</div>`;
+            aprilChart.appendChild(div);
+        }
+
+        // Populate March
         const marchChart = document.getElementById('marchChart');
-        const marchDaysTillToday = marchResults.length;
-        for(let day = 1; day <= marchDaysTillToday; day++) {
+        marchResults.forEach((res, i) => {
             const div = document.createElement('div');
-            div.className = `chart-day ${day === marchDaysTillToday ? 'today-highlight' : ''}`;
-            div.innerHTML = `
-                <div class="day-date">${day} Mar</div>
-                <div class="day-result">${marchResults[day-1]}</div>
-            `;
+            div.className = 'chart-day';
+            div.innerHTML = `<div class="day-date">${i+1} Mar</div><div class="day-result">${res}</div>`;
             marchChart.appendChild(div);
-        }
+        });
 
-        // February middle chart (full fixed, no highlight)
-        const febChart = document.getElementById('februaryChart');
-        for(let day = 1; day <= februaryResults.length; day++) {
+        // Populate February
+        const februaryChart = document.getElementById('februaryChart');
+        februaryResults.forEach((res, i) => {
             const div = document.createElement('div');
             div.className = 'chart-day';
-            div.innerHTML = `
-                <div class="day-date">${day} Feb</div>
-                <div class="day-result">${februaryResults[day-1]}</div>
-            `;
-            febChart.appendChild(div);
-        }
-
-        // January bottom chart (full fixed)
-        const janChart = document.getElementById('januaryChart');
-        for(let day = 1; day <= 30; day++) {
-            const div = document.createElement('div');
-            div.className = 'chart-day';
-            div.innerHTML = `
-                <div class="day-date">${day} Jan</div>
-                <div class="day-result">${januaryResults[day-1]}</div>
-            `;
-            janChart.appendChild(div);
-        }
+            div.innerHTML = `<div class="day-date">${i+1} Feb</div><div class="day-result">${res}</div>`;
+            februaryChart.appendChild(div);
+        });
     </script>
 </body>
 </html>
