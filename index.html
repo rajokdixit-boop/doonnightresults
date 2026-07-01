@@ -146,49 +146,52 @@
     <div class="container">
         <h1>DOON NIGHT</h1>
         
-        <!-- CURRENT RESULT -->
         <div class="current-section">
-            <div class="RESULT" id="currentNum">25</div>
-            <p class="astrology-text">✨ TODAY'S RESULT (29 June) ✨</p>
+            <div class="RESULT" id="currentNum">16</div>
+            <p class="astrology-text">✨ TODAY'S RESULT (01 July) ✨</p>
             <p class="astrology-text">RESULT TIME 1:00 PM</p>
         </div>
 
-        <!-- JUNE 2026 RESULTS -->
         <div class="month-section">
-            <h2 class="month-title">📊 JUNE 2026 RESULTS (Active)</h2>
+            <h2 class="month-title">📊 JULY 2026 RESULTS (Active)</h2>
+            <div class="chart-grid" id="julyChart"></div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">📊 JUNE 2026 RESULTS (Complete)</h2>
             <div class="chart-grid" id="juneChart"></div>
         </div>
 
-        <!-- MAY 2026 RESULTS -->
         <div class="month-section">
             <h2 class="month-title">📊 MAY 2026 RESULTS (Complete)</h2>
             <div class="chart-grid" id="mayChart"></div>
         </div>
 
-        <!-- APRIL 2026 RESULTS -->
         <div class="month-section">
             <h2 class="month-title">📊 APRIL 2026 RESULTS (Complete)</h2>
             <div class="chart-grid" id="aprilChart"></div>
         </div>
 
-        <!-- MARCH 2026 RESULTS -->
         <div class="month-section">
             <h2 class="month-title">📊 MARCH 2026 RESULTS (Complete)</h2>
             <div class="chart-grid" id="marchChart"></div>
         </div>
 
         <div class="update-info">
-            Last Updated: June 29, 2026 1:00 PM IST<br>
+            Last Updated: July 01, 2026 1:00 PM IST<br>
             👑 DOON NIGHT | Daily 1 PM Results | Delhi, India
         </div>
     </div>
 
     <script>
-        // UPDATE THIS DAILY FOR JUNE
-        const TODAY_RESULT = "25"; // Example initial value for June 1st
+        // UPDATE THIS DAILY FOR JULY
+        const TODAY_RESULT = "16"; // Example current result for July 1st
 
-        // JUNE 2026 (Active month - Add numbers as they come)
-        const juneResults = [ 93, 36, 14, 13, 63, 11, 44, 66, 10, 10, 51, 38, 20, 40, 04, 13, 70, 57, 58, 75, 07, 97, 22, 88, 19, 62, 26, 25, 25 ];
+        // JULY 2026 (Active month - Add numbers here day by day)
+        const julyResults = [ 16 ];
+
+        // JUNE 2026 (Saved Complete Data)
+        const juneResults = [ 93, 36, 14, 13, 63, 11, 44, 66, 10, 10, 51, 38, 20, 40, 04, 13, 70, 57, 58, 75, 07, 97, 22, 88, 19, 62, 26, 25, 25, 00 ];
 
         // MAY 2026 (Saved Complete Data)
         const mayResults = [ 16, 66, 24, 23, 30, 59, 41, 77, 14, 74, 10, 80, 10, 13, 31, 32, 72, 73, 73, 24, 44, 06, 60, 77, 76, 88, 08, 45, 90, 91 ];
@@ -216,18 +219,19 @@
             });
         }
 
-        // Active handling for June (Active month loops up to 30 days)
-        const juneChart = document.getElementById('juneChart');
-        for(let day = 1; day <= 30; day++) {
+        // Active handling for July (Active month loops up to 31 days)
+        const julyChart = document.getElementById('julyChart');
+        for(let day = 1; day <= 31; day++) {
             const div = document.createElement('div');
-            const result = juneResults[day-1] !== undefined ? juneResults[day-1] : "--";
-            if(day === juneResults.length && juneResults.length > 0) div.className = 'chart-day today-highlight';
+            const result = julyResults[day-1] !== undefined ? julyResults[day-1] : "--";
+            if(day === julyResults.length && julyResults.length > 0) div.className = 'chart-day today-highlight';
             else div.className = 'chart-day';
-            div.innerHTML = `<div class="day-date">${day} June</div><div class="day-result">${result}</div>`;
-            juneChart.appendChild(div);
+            div.innerHTML = `<div class="day-date">${day} July</div><div class="day-result">${result}</div>`;
+            julyChart.appendChild(div);
         }
 
         // Render previous months
+        populateChart('juneChart', juneResults, 'June');
         populateChart('mayChart', mayResults, 'May');
         populateChart('aprilChart', aprilResults, 'Apr');
         populateChart('marchChart', marchResults, 'Mar');
