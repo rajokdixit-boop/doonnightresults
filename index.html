@@ -147,13 +147,19 @@
         <h1>DOON NIGHT</h1>
         
         <div class="current-section">
-            <div class="RESULT" id="currentNum">61</div>
-            <p class="astrology-text">✨ TODAY'S RESULT (30 July) ✨</p>
+            <div class="RESULT" id="currentNum">--</div>
+            <p class="astrology-text">✨ TODAY'S RESULT (1 August) ✨</p>
             <p class="astrology-text">RESULT TIME 1:00 PM</p>
         </div>
 
+        <!-- AUGUST 2026 (NEW ACTIVE MONTH) -->
         <div class="month-section">
-            <h2 class="month-title">📊 JULY 2026 RESULTS (Active)</h2>
+            <h2 class="month-title">📊 AUGUST 2026 RESULTS (Active)</h2>
+            <div class="chart-grid" id="augustChart"></div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">📊 JULY 2026 RESULTS (Complete)</h2>
             <div class="chart-grid" id="julyChart"></div>
         </div>
 
@@ -178,16 +184,19 @@
         </div>
 
         <div class="update-info">
-            Last Updated: July 30, 2026 1:00 PM IST<br>
+            Last Updated: August 1, 2026 1:00 PM IST<br>
             👑 DOON NIGHT | Daily 1 PM Results | Delhi, India
         </div>
     </div>
 
     <script>
-        // UPDATE THIS DAILY FOR JULY
-        const TODAY_RESULT = "61"; // Example current result for July 1st
+        // UPDATE THIS DAILY FOR AUGUST
+        const TODAY_RESULT = "--"; // Add today's result here
 
-        // JULY 2026 (Active month - Add numbers here day by day)
+        // AUGUST 2026 (Active month - Add numbers here day by day)
+        const augustResults = [];
+
+        // JULY 2026 (Saved Complete Data)
         const julyResults = [ 16, 17, 27, 94, 50, 45, 95, 26, 95, 05, 50, 35, 12, 88, 99, 16, 23, 32, 16, 73, 61, 35, 20, 08, 75, 02, 72, 07, 16, 61 ];
 
         // JUNE 2026 (Saved Complete Data)
@@ -219,18 +228,19 @@
             });
         }
 
-        // Active handling for July (Active month loops up to 31 days)
-        const julyChart = document.getElementById('julyChart');
+        // Active handling for August (31 days)
+        const augustChart = document.getElementById('augustChart');
         for(let day = 1; day <= 31; day++) {
             const div = document.createElement('div');
-            const result = julyResults[day-1] !== undefined ? julyResults[day-1] : "--";
-            if(day === julyResults.length && julyResults.length > 0) div.className = 'chart-day today-highlight';
+            const result = augustResults[day-1] !== undefined ? augustResults[day-1] : "--";
+            if(day === augustResults.length && augustResults.length > 0) div.className = 'chart-day today-highlight';
             else div.className = 'chart-day';
-            div.innerHTML = `<div class="day-date">${day} July</div><div class="day-result">${result}</div>`;
-            julyChart.appendChild(div);
+            div.innerHTML = `<div class="day-date">${day} Aug</div><div class="day-result">${result}</div>`;
+            augustChart.appendChild(div);
         }
 
         // Render previous months
+        populateChart('julyChart', julyResults, 'July');
         populateChart('juneChart', juneResults, 'June');
         populateChart('mayChart', mayResults, 'May');
         populateChart('aprilChart', aprilResults, 'Apr');
