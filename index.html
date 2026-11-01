@@ -157,8 +157,8 @@
         <h1>DOON NIGHT</h1>
         
         <div class="current-section">
-            <div class="RESULT" id="currentNum"<25</div>
-            <p class="astrology-text">✨ TODAY'S RESULT (30 October) ✨</p>
+            <div class="RESULT" id="currentNum"<--</div>
+            <p class="astrology-text">✨ TODAY'S RESULT (01 November) ✨</p>
             <p class="astrology-text">RESULT TIME 1:00 PM</p>
         </div>
 
@@ -181,7 +181,7 @@
         </div>
 
         <div class="update-info">
-            Last Updated: October 30, 2026 1:00 PM IST<br>
+            Last Updated: November 01, 2026 1:00 PM IST<br>
             👑 DOON NIGHT | Daily 1 PM Results | Delhi, India
         </div>
     </div>
@@ -196,10 +196,7 @@
         // =========================================================
         // TODAY'S RESULT & ACTIVE MONTH DATA
         // =========================================================
-        const TODAY_RESULT = "25"; // Update today's result here
-
-        // OCTOBER 2026 (Active month - Add results day by day)
-        const octoberResults = ["10", "03", "24", "42", "09", "09", "22", "42", "13", "44", "90", "69", "92", "22", "91", "13", "31", "24", "19", "23", "36", "39", "07", "06", "10", "03", "05", "06", "34", "25"]; 
+        const TODAY_RESULT = "--"; // Update today's result here
 
         // HISTORICAL MONTHS DATA
         const januaryResults   = ["14", "82", "05", "49", "73", "28", "91", "60", "34", "17", "52", "88", "02", "39", "65", "41", "70", "23", "96", "11", "58", "84", "09", "31", "67", "45", "78", "20", "93", "15", "50"];
@@ -211,11 +208,15 @@
         const julyResults      = ["16", "17", "27", "94", "50", "45", "95", "26", "95", "05", "50", "35", "12", "88", "99", "16", "23", "32", "16", "73", "61", "35", "20", "08", "75", "02", "72", "07", "16", "61"];
         const augustResults    = ["01", "02", "03", "44", "94", "49", "43", "24", "76", "19", "48", "32", "97", "03", "80", "30", "31", "92", "07", "17", "40", "85", "86", "14", "38", "57", "12", "30", "92", "87"];
         const septemberResults = ["52", "55", "07", "07", "08", "99", "10", "24", "44", "99", "04", "38", "40", "40", "41", "15", "94", "06", "83", "71", "63", "33", "93", "01", "77", "27", "26", "29", "66", "--"];
+        const octoberResults   = ["10", "03", "24", "42", "09", "09", "22", "42", "13", "44", "90", "69", "92", "22", "91", "13", "31", "24", "19", "23", "36", "39", "07", "06", "10", "03", "05", "06", "34", "25"]; 
+
+        // NOVEMBER 2026 (Active month - Update results day by day)
+        const novemberResults  = ["--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--"]; 
 
         // Set top main result
         document.getElementById('currentNum').textContent = TODAY_RESULT;
 
-        // Month Columns configuration (Jan to Oct)
+        // Month Columns configuration (Jan to Nov)
         const monthsList = [
             { name: "JAN", data: januaryResults, totalDays: 31 },
             { name: "FEB", data: februaryResults, totalDays: 28 },
@@ -226,7 +227,8 @@
             { name: "JUL", data: julyResults, totalDays: 31 },
             { name: "AUG", data: augustResults, totalDays: 31 },
             { name: "SEP", data: septemberResults, totalDays: 30 },
-            { name: "OCT", data: octoberResults, totalDays: 31, isActive: true }
+            { name: "OCT", data: octoberResults, totalDays: 31 },
+            { name: "NOV", data: novemberResults, totalDays: 30, isActive: true }
         ];
 
         // 1. Build Table Headers
@@ -264,7 +266,7 @@
 
                     td.innerHTML = `<span class="res-val">${formatted}</span>`;
                 } else {
-                    // Days that don't exist in shorter months (e.g., Feb 29-31, Apr 31)
+                    // Days that don't exist in shorter months (e.g., Feb 29-31, Apr 31, Nov 31)
                     td.innerHTML = `<span style="opacity: 0.2;">-</span>`;
                 }
                 
@@ -276,3 +278,4 @@
     </script>
 </body>
 </html>
+
